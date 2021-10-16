@@ -3,7 +3,6 @@ let changeColor = document.getElementById("changeColor");
 let changePiece = document.getElementById("changePawn");
 let removeYtVideo = document.getElementById("removeYtVideo");
 let likeVideo = document.getElementById("likeVideo");
-let paperclips = document.getElementById("paperclips");
 
 chrome.storage.sync.get("color", ({color}) => {
     changeColor.style.backgroundColor = color;
