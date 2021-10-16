@@ -3,6 +3,11 @@ let changeColor = document.getElementById("changeColor");
 let changePiece = document.getElementById("changePawn");
 let removeYtVideo = document.getElementById("removeYtVideo");
 let likeVideo = document.getElementById("likeVideo");
+let paperclips = document.getElementById("paperclips");
+
+chrome.storage.sync.get("color", ({color}) => {
+    changeColor.style.backgroundColor = color;
+});
 
 chrome.storage.sync.get("color", ({color}) => {
     changeColor.style.backgroundColor = color;
@@ -51,9 +56,7 @@ function setWhitePawnColor() {
 
     });
 }
-
 //-------------------------- like Tallions Videos -----------------------------------
-
 
 
 likeVideo.addEventListener("click", async () => {
@@ -68,29 +71,23 @@ likeVideo.addEventListener("click", async () => {
 });
 
 function likeYtVideo() {
-    if (document.querySelector('[href~="/channel/UCn8AIYjCVblHqTqE2PMsrMA"]'))
-    {
-        if (document.getElementsByClassName('style-default-active').length === 0)
-        {
+    if (document.querySelector('[href~="/channel/UCn8AIYjCVblHqTqE2PMsrMA"]')) {
+        if (document.getElementsByClassName('style-default-active').length === 0) {
             let likeButtonGerman = document.querySelector('[aria-label~="Ich"]');
             let likeButtonEnglish = document.querySelector('[aria-label~="Like"]');
 
-            if (likeButtonGerman)
-            {
+            if (likeButtonGerman) {
                 likeButtonGerman.click();
                 console.log('Daumen hoch für Tallion!');
-            }
-            else if (likeButtonEnglish)
-            {
+            } else if (likeButtonEnglish) {
                 likeButtonEnglish.click();
                 console.log('Thumbs up for Tallion!');
             }
-        }
-        else
-        {
+        } else {
             console.log('You already liked the Video!')
         }
     } else {
         console.log('This is not Tallions Channel!');
     }
 }
+
