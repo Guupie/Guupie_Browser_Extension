@@ -1,13 +1,117 @@
+
 button {
-  height: 30px;
-  width: 30px;
-  outline: none;
-  margin: 10px;
-  border: none;
-  border-radius: 2px;
+    height: 30px;
+    width: 50px;
+    outline: none;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: darkgray;
+}
+
+.button-hover:hover {
+    background-color: white;
+    height: 30px;
+    width: 53px;
+    box-shadow: 0px 5px 25px 5px #39797d;
+}
+
+#saveButton {
+    width: 200px;
 }
 
 button.current {
-  box-shadow: 0 0 0 2px white,
-              0 0 0 4px black;
+    box-shadow: 0 0 0 2px white,
+    0 0 0 4px black;
 }
+
+body {
+    background: linear-gradient(90deg, #002296 0%, #82008f 18%, #c0007a 34%, #ea0c5f 50%, #ff5341 66%, #ff8820 82%, #f6ba00 100%);
+}
+
+input {
+    width: 50%;
+    height: 40px;
+    background-color: white;
+    border-style: solid;
+    border-radius: 10px;
+    font-family: "Microsoft YaHei";
+}
+
+input:focus {
+    box-shadow: 0px 5px 25px 5px #39797d;
+}
+
+#youtuberInput {
+    min-width: 400px;
+}
+
+.youtuberInput {
+    width: 1200px;
+    margin-bottom: 5px;
+}
+
+#addInputButton {
+    min-width: 200px
+}
+
+.width-400 {
+    width: 400px;
+}
+
+#addInputDiv {
+    display: flex;
+    justify-content: center;
+    width: 800px;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.width-full {
+    width: 100%;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+#mainContainer {
+    position: relative;
+}
+
+#bottomContainer {
+    position: absolute;
+    bottom: 0;
+    background-color: mintcream;
+    min-height: 60px;
+}
+
+.icon-button {
+    border-style: hidden;
+    border-radius: 20px;
+    height: 40px;
+    width: 40px;
+}
+
+.icon-button:hover {
+    border-style: inset;
+    border-width: 2px;
+    border-radius: 20px;
+    height: 40px;
+    width: 40px;
+    border-color: orangered;
+    background-color: lightcoral;
+}
+
+.color-white{
+    color: white;
+}
+
+
+

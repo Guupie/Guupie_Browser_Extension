@@ -2,21 +2,32 @@
 <html>
 <head>
     <link rel="stylesheet" href="button.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<div id="buttonDiv">
-</div>
-<div>
-    <p>Choose a different background!</p>
-</div>
-<div>Channel URL:<input id="youtuberInput" type="text"/></div>
-<br/>
-<div>Aktuelle Auswahl:
-    <div id="currentYoutuber"></div>
-</div>
-<br/>
-<button id="saveButton" type="submit">Save Youtuber</button>
+<div id="mainContainer">
+    <div class="flex justify-content-center color-white" style="font-size: 50px"><strong>Youtube Auto-liker</strong></div>
+    <br/>
+    <div class="flex flex-wrap justify-content-center width-full">
+        <div id="inputs"></div>
+        <br/>
+    </div>
+    <div class="flex flex-wrap justify-content-center">
+        <div id="addInputDiv">
+            <button id="addInputButton" class="button-hover">+</button>
+        </div>
+        <br/>
+    </div>
 
+    <div class="flex justify-content-center">
+        <button id="saveButton" class="button-hover">Save Youtuber</button>
+    </div>
+</div>
+<div style="right: 0" id="bottomContainer" class="socials flex width-full justify-content-center">
+    <button class="icon-button" style="background-color: cadetblue"><a class="color-white" href="https://www.youtube.com/channel/UCTrcb4PpxFYhSED6nNtLCGw" target="_blank"><i class="material-icons">smart_display</i></a></button>
+    <button class="icon-button" style="background-color: lightcoral"><a class="color-white" href="https://www.instagram.com/exatek_de/" target="_blank"><i class="material-icons">build</i></a></button>
+    <button class="icon-button" style="background-color: mediumaquamarine"><a class="color-white" href="https://github.com/Guupie/Guupie_Browser_Extension/" target="_blank"><i class="material-icons">cloud_download</i></a></button>
+</div>
 </body>
 <script src="options.js"></script>
 </html>

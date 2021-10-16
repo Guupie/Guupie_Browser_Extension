@@ -1,8 +1,12 @@
 let page = document.getElementById("buttonDiv");
-let pageYt = document.getElementById("buttonDiv");
+let pages = document.getElementById("inputs");
 let selectedClassName = "current";
 let selectedYoutuber = "";
+let youtuberSave = document.getElementById("saveButton");
+let addInput = document.getElementById("addInputButton");
 const presetButtonColors = ["#3aa757", "#e8453c", "#f9bb2d", "#4688f1"];
+const CREATION = 1;
+const NEWINPUT = 2;
 
 // Reacts to a button click by marking marking the selected button and saving
 // the selection
@@ -59,19 +63,26 @@ function constructOptions(buttonColors) {
 }
 
 function constructYtOptions() {
-    chrome.storage.sync.get("youtuber", (data) => {
-        document.getElementById('youtuberInput').value = data.youtuber;
-
+    chrome.storage.sync.get("youtuberList", (data) => {
+        console.log(data);
+        createYoutuberInput(CREATION, data);
     })
 }
 
 function saveYoutuber() {
-    let youtuber = document.getElementById('youtuberInput').value;
-    chrome.storage.sync.set({youtuber});
+    let youtubeUrls = document.getElementsByClassName('youtuberInput');
+    let counter = document.getElementsByClassName('youtuberInput').length;
+    let youtuberList = [];
+
+    for (let i = 0; i < counter; i++) {
+        youtuberList[i] = document.getElementById(i.toString()).value;
+    }
+
+    console.log(youtuberList);
+
+    chrome.storage.sync.set({youtuberList});
 }
 
-
-let youtuberSave = document.getElementById("saveButton");
 
 youtuberSave.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
@@ -82,6 +93,40 @@ youtuberSave.addEventListener("click", async () => {
     });
 
 });
+
+addInput.addEventListener("click", async () => {
+    let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+
+    chrome.scripting.executeScript({
+        target: {tabId: tab.id},
+        function: createYoutuberInput(NEWINPUT),
+    });
+});
+
+function createYoutuberInput(type, data = []) {
+
+    if (type === CREATION) {
+        for(let i = 0;i < data.youtuberList.length; i++)
+        {
+            let youtuberInput = document.createElement("input");
+            youtuberInput.classList.add('youtuberInput');
+            youtuberInput.id = i.toString();
+            youtuberInput.setAttribute('placeholder', 'www.youtube.com/channel/....');
+            youtuberInput.value = data.youtuberList[i];
+            pages.appendChild(youtuberInput);
+            pages.appendChild(document.createElement("br"));
+        }
+
+    } else if (type === NEWINPUT) {
+        let counter = document.getElementsByClassName('youtuberInput').length;
+        let input = document.createElement("input");
+        input.classList.add('youtuberInput');
+        input.id = counter.toString();
+        pages.appendChild(input);
+        pages.appendChild(document.createElement("br"));
+    }
+}
+
 
 // Initialize the page by constructing the color options
 constructOptions(presetButtonColors);

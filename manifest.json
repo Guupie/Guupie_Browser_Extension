@@ -1,6 +1,6 @@
 {
-  "name": "Guupie's Extension",
-  "description": "My first Extension",
+  "name": "Youtube Autoliker",
+  "description": "Automaticly like your favorite youtubers videos",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
@@ -10,10 +10,10 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "/images/get_started16.png",
-      "32": "/images/get_started32.png",
-      "48": "/images/get_started48.png",
-      "128": "/images/get_started128.png"
+      "16": "/images/outline_thumb_up_alt_black_24dp.png",
+      "32": "/images/outline_thumb_up_alt_black_36dp.png",
+      "48": "/images/outline_thumb_up_alt_black_48dp.png",
+      "128": "/images/outline_thumb_up_alt_black_48dp.png"
     }
   },
   "icons": {

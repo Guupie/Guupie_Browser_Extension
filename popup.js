@@ -1,12 +1,8 @@
-// Initialize butotn with users's prefered color
+// Initialize button with users's prefered color
 let changeColor = document.getElementById("changeColor");
 let changePiece = document.getElementById("changePawn");
 let removeYtVideo = document.getElementById("removeYtVideo");
 let likeVideo = document.getElementById("likeVideo");
-
-chrome.storage.sync.get("color", ({color}) => {
-    changeColor.style.backgroundColor = color;
-});
 
 chrome.storage.sync.get("color", ({color}) => {
     changeColor.style.backgroundColor = color;
@@ -23,7 +19,7 @@ changeColor.addEventListener("click", async () => {
 });
 
 
-// The body of this function will be execuetd as a content script inside the
+// The body of this function will be executed as a content script inside the
 // current page
 function setPageBackgroundColor() {
     chrome.storage.sync.get("color", ({color}) => {
@@ -70,6 +66,15 @@ likeVideo.addEventListener("click", async () => {
 });
 
 function likeYtVideo() {
+
+    let youtuberUrl;
+
+    chrome.storage.sync.get("youtuber", ({youtuber}) => {
+        yotuberUrl = youtuber;
+    });
+
+    console.log(yotuberUrl);
+
     if (document.querySelector('[href~="/channel/UCn8AIYjCVblHqTqE2PMsrMA"]')) {
         if (document.getElementsByClassName('style-default-active').length === 0) {
             let likeButtonGerman = document.querySelector('[aria-label~="Ich"]');
