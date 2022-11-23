@@ -27,6 +27,7 @@ button.current {
 
 body {
     background: linear-gradient(90deg, #002296 0%, #82008f 18%, #c0007a 34%, #ea0c5f 50%, #ff5341 66%, #ff8820 82%, #f6ba00 100%);
+    background: lightgrey;
 }
 
 input {

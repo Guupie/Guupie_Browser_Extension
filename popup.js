@@ -3,6 +3,7 @@ let changeColor = document.getElementById("changeColor");
 let changePiece = document.getElementById("changePawn");
 let removeYtVideo = document.getElementById("removeYtVideo");
 let likeVideo = document.getElementById("likeVideo");
+let lookupQuestions = document.getElementById("lookupQuestions");
 
 chrome.storage.sync.get("color", ({color}) => {
     changeColor.style.backgroundColor = color;
@@ -67,7 +68,7 @@ likeVideo.addEventListener("click", async () => {
 
 function likeYtVideo() {
 
-    let youtuberUrl;
+    let youtuberUrl = '';
 
     chrome.storage.sync.get("youtuber", ({youtuber}) => {
         yotuberUrl = youtuber;
@@ -95,3 +96,29 @@ function likeYtVideo() {
     }
 }
 
+
+// ---------------------------------- lookup questions -----------------------------
+
+lookupQuestions.addEventListener("click", async () => {
+    let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+
+    chrome.scripting.executeScript({
+        target: {tabId: tab.id},
+        function: lookupQuestion,
+    });
+
+});
+
+function lookupQuestion()
+{
+    let Elements = document.getElementsByClassName('office-form-question-title 2text-format-content');
+
+    console.log(Elements);
+
+    for(let i = 0;i<=Elements.length;i++)
+    {
+    console.log(Elements[i].valueOf());
+    }
+
+
+}
