@@ -37,17 +37,25 @@ changePiece.addEventListener("click", async () => {
 
     chrome.scripting.executeScript({
         target: {tabId: tab.id},
-        function: setWhitePawnColor,
+        function: togglePawnColor,
     });
 });
 
-function setWhitePawnColor() {
+function togglePawnColor() {
     chrome.storage.sync.get("pawn", ({}) => {
 
         let pawnsWhite = document.getElementsByClassName('wp');
 
+        let pawnsBlack = document.getElementsByClassName('bp');
+
         for (let pawns of pawnsWhite) {
             pawns.classList.add('bp');
+            pawns.classList.remove('wp');
+        }
+
+        for (let pawns of pawnsBlack) {
+            pawns.classList.add('wp');
+            pawns.classList.remove('bp');
         }
 
     });

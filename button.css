@@ -28,6 +28,7 @@ button.current {
 body {
     background: linear-gradient(90deg, #002296 0%, #82008f 18%, #c0007a 34%, #ea0c5f 50%, #ff5341 66%, #ff8820 82%, #f6ba00 100%);
     background: lightgrey;
+    margin: 0px;
 }
 
 input {
@@ -112,6 +113,60 @@ input:focus {
 
 .color-white{
     color: white;
+}
+
+#navigation {
+    width: 100%;
+    height: 50px;
+}
+
+#navigation .option-container {
+    width: 100%;
+    list-style-type: none;
+    justify-content: space-around;
+    padding-bottom: 0;
+}
+
+#navigation .option-container .option {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+#navigation .option-container .option a {
+    text-decoration: none;
+    color: black;
+}
+
+#navigation .option-container .option:hover {
+    font-weight: bolder;
+    font-size: 23px;
+}
+
+#navigation .option-container .option:hover .left-border {
+    padding-left: 5px;
+}
+
+#navigation .option-container .option:hover .right-border {
+    padding-right: 5px;
+}
+
+#navigation .option-container .option .left-border {
+    justify-self: left;
+    padding-left: 10px;
+}
+
+#navigation .option-container .option .right-border {
+    justify-self: right;
+    padding-right: 10px;
+
+}
+
+.go-back {
+    float: left;
+    padding: 15px;
 }
 
 
